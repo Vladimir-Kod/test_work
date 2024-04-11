@@ -1,0 +1,6 @@
+.cards__spinner{
+    position: fixed;
+    top: 50%;
+    left: 50%; 
+    transform: scale(2);
+}

@@ -1,0 +1,8 @@
+.inputbar__wrapper {
+    display: flex;
+    gap: 20px; 
+}
+
+.inputbar__input{
+    min-width: 114px
+}

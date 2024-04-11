@@ -1,0 +1,20 @@
+.diagram__wrapper {
+    padding: 15px;
+}
+
+.diagram__natification {
+    color: red;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    opacity: 1;
+}
+
+.diagram__navigate_button {
+    min-width: 275px; 
+    margin-bottom: 30px;
+}
+
+.diagram__natification--opacity {
+    opacity: 0;
+}
