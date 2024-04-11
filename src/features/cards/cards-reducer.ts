@@ -55,9 +55,9 @@ export const actions = {
         ({ type: 'CardsReducer/SET_ISLOADING', isLoading } as const),
     setIsError: (isError: boolean) =>
         ({ type: 'CardsReducer/SET_IS_ERROR', isError } as const),
-    setConnectedValue: (connectedValue: number) =>
+    setConnectedValue: (connectedValue: number | null) =>
         ({ type: 'CardsReducer/SET_CONNECTED_VALUE', connectedValue } as const),
-    setDepartamentValue: (departamentValue: number) =>
+    setDepartamentValue: (departamentValue: number | null) =>
         ({ type: 'CardsReducer/SET_DEPARTAMENT_VALUE', departamentValue } as const),
 }
 

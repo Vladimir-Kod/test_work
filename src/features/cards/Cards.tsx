@@ -48,6 +48,11 @@ export const Cards = () => {
         dispatch(actions.setDepartamentValue(+value))
     };
 
+    const clearInputHandler = () =>{
+        setConnectedFilterValue(null)
+        setDeportamentFilterValue(null)        
+    }
+
 
     return (
         <div className="cards__wrapper">
@@ -76,6 +81,9 @@ export const Cards = () => {
                     options={cardsData.departments.map(el => ({ value: el.id, label: el.name }))}
                 /> 
             </Space>
+            <Flex gap="small" wrap="wrap">
+                <Button className="cards__reset__input__button" onClick={clearInputHandler} type='default'>Очистить поля</Button>
+            </Flex>
 
             <p className={isError ? "cards__error__info" : "cards__error__info--hide"}>Что-то пошло не так!</p>
 

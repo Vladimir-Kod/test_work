@@ -10,40 +10,36 @@ type CustomCardType = {
 }
 
 export const CustomCard = (props: CustomCardType) => {
-    const {filteredData, cardsData} = props
+    const { filteredData, cardsData } = props
 
     return (
         <div className='card__root'>
-         {filteredData ? filteredData.map(el => {
+            {filteredData ? filteredData.map(el => {
                 return (
-                        <Card key={el.id} 
-                        size="small" 
-                        title={el.brigade_name} 
-                        bordered={false}  
-                        style={{minWidth: "100px",  boxShadow: '1px 0 10px rgba(0, 0, 0, 0.1)' }} // оставил инлайн стили т.к. через className не отрабатывали
-                        >
+                    <Card key={el.id}
+                        size="small"
+                        title={el.brigade_name}
+                        bordered={false}
+                        style={{ minWidth: "100px", boxShadow: '1px 0 10px rgba(0, 0, 0, 0.1)' }} // оставил инлайн стили т.к. через className не отрабатывали
+                    >
 
-                            <h3>{cardsData.departments.find(item => item.id === el.department.id)?.name}</h3>
-                            <div className='card__discription'>
-                                <p>
-                                    <span className={`card__discription__paragraph--bold ${el.connectionStateId === 1 ? 'green' : 'red'}`}>
-                                        Соединение: 
-                                    </span>
-                                    <span className={el.connectionStateId === 1 ? 'green' : 'red'}>
-                                        {cardsData.connectionState
-                                        .find(item => item.connectionStateId === el.connectionStateId)?.name === "Доступен "
-                                            ? ' В норме '
-                                            : ' Нет связи '
-                                        }
-                                    </span>
-                                    <span>{el.connectionStateId === 1 ? <CheckIcon /> : <DisconnectIcon />}</span>
-                                </p>
-                                <p><span className='card__discription__paragraph--bold'>Кластер: </span><span>{el.position.cluster}</span></p>
-                                <p><span className='card__discription__paragraph--bold'>Поле: </span><span>{el.position.field}</span></p>
-                                <p><span className='card__discription__paragraph--bold'>Скважина: </span><span>{el.position.well}</span></p>
-                            </div>
+                        <h3>{cardsData.departments.find(item => item.id === el.department.id)?.name}</h3>
+                        <div className='card__discription'>
+                            <p>
+                                <span className={`card__discription__paragraph--bold ${el.connectionStateId === 1 ? 'green' : 'red'}`}>
+                                    {'Соединение: '}
+                                </span>
+                                <span className={el.connectionStateId === 1 ? 'green' : 'red'}>
+                                    {el.connectionStateId === 1 ? 'В норме ' : 'Нет связи '}
+                                </span>
+                                <span>{el.connectionStateId === 1 ? <CheckIcon /> : <DisconnectIcon />}</span>
+                            </p>
+                            <p><span className='card__discription__paragraph--bold'>Кластер: </span><span>{el.position.cluster}</span></p>
+                            <p><span className='card__discription__paragraph--bold'>Поле: </span><span>{el.position.field}</span></p>
+                            <p><span className='card__discription__paragraph--bold'>Скважина: </span><span>{el.position.well}</span></p>
+                        </div>
 
-                        </Card>
+                    </Card>
                 )
             }) : 'No data'}
         </div>

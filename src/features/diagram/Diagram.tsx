@@ -84,31 +84,32 @@ export const Diagram = (props: HighchartsReact.Props) => {
     }, [])
 
     return (
-        <div className='diagram__wrapper'>
-
-            <Flex gap="small" wrap="wrap">
-                <Button className='diagram__navigate_button' onClick={() => navigate('/')} type="primary">К карточкам</Button>
-            </Flex>
-
+        <>
             {isLoading && <Spinner />}
+            <div className={`${!isLoading ? 'diagram__wrapper' : 'diagram__wrapper--opacity'}`}>
 
-            <InputBar 
-            onClick={onclickButtonHandler} 
-            titleButton='Загрузить точки' 
-            placeholder='Кол-во точек' 
-            isLoading={isLoading} 
-            currentPoint={currentPoint}
-            />
+                <Flex gap="small" wrap="wrap">
+                    <Button className='diagram__navigate_button' onClick={() => navigate('/')} type="primary">К карточкам</Button>
+                </Flex>
 
-            <HighchartsReact
-                highcharts={Highcharts}
-                options={options}
-                ref={chartComponentRef}
-                {...props}
-            />
+                <InputBar
+                    onClick={onclickButtonHandler}
+                    titleButton='Загрузить точки'
+                    placeholder='Кол-во точек'
+                    isLoading={isLoading}
+                    currentPoint={currentPoint}
+                />
 
-            <p className={isError ? 'diagram__natification' : 'diagram__natification--opacity'}>Что-то пошло не так</p>
+                <HighchartsReact
+                    highcharts={Highcharts}
+                    options={options}
+                    ref={chartComponentRef}
+                    {...props}
+                />
 
-        </div>
+                <p className={isError ? 'diagram__natification' : 'diagram__natification--opacity'}>Что-то пошло не так</p>
+
+            </div>
+        </>
     )
 }
